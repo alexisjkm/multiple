@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExamenesPreguntas extends Migration
+class CreateExamanesPreguntas extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateExamenesPreguntas extends Migration
      */
     public function up()
     {
-        Schema::create('examenes_preguntas', function (Blueprint $table) {
+        Schema::create('examanes_preguntas', function (Blueprint $table) {
             $table->id();
-            $table-unsignedBigInteger('id_examen_solicitud');
+            $table->unsignedBigInteger('id_examen_solicitud');
             $table->string('pregunta')->default(0);
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ class CreateExamenesPreguntas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('examenes_preguntas');
+        Schema::dropIfExists('examanes_preguntas');
     }
 }

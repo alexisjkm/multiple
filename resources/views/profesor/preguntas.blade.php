@@ -1,12 +1,21 @@
 @extends('../layouts.main')
-@section('title', 'Crear Formulario')
+@section('title', 'Crear Preguntas')
 @section('content')
 
 <div class="container">
-    <div class="col-md-6 offset-md-3">
-        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalStatic" >Crear Nuevo Examen</button>
+    <div class="col-md-12 " id="preguntas">
+        <!-- <input type="text" value="{!!$id!!}" id="id_solicitud"> -->
+        <!-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalStatic" >Crear  Examen</button> -->
     </div>
-    <div class="modal fade" id="modalStatic" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalStaticLabel" aria-hidden="true">
+    <div class="col-md-12">
+        
+    </div>
+    <script>
+        
+        
+        getPreguntas({!!$id!!});
+    </script>
+    <!-- <div class="modal fade" id="modalStatic" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalStaticLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
             <div class="modal-content">
             <div class="modal-header">
@@ -53,10 +62,10 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" onclick="guardarPreguntas()"  class="btn btn-primary">Guardar</button>
+                <button type="button" onclick="guardarPreguntas()"  class="btn btn-primary">Save</button>
             </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
 @endsection

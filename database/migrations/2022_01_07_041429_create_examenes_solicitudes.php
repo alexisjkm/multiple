@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateExamenSolicitud extends Migration
+class CreateExamenesSolicitudes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateExamenSolicitud extends Migration
      */
     public function up()
     {
-        Schema::create('examenes_solicitud', function (Blueprint $table) {
+        Schema::create('examenes_solicitudes', function (Blueprint $table) {
             $table->id();
             $table->string("nombre_examen", 35);
             $table->integer("cantidad")->unsigned();
@@ -28,6 +28,6 @@ class CreateExamenSolicitud extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('examenes_solicitud');
+        Schema::dropIfExists('examenes_solicitudes');
     }
 }
