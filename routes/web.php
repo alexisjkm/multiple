@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'profesor',], function () {
+    // Route::apiResource('/profesor', 'API\ExamenSolicitudController');
+    // Route::get(/)
+    Route::get('/', function () {
+        return view('profesor.create');
+    });
+    Route::get('/{id}', 'ProfesorController@crearPreguntas');
 });
+
