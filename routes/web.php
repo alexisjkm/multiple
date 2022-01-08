@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{id}', 'HomeController@verRespuestas');
+Route::get('/home/{id}', 'HomeController@verRespuestas');
 
 Route::get('/', function(){
     $id = uniqid();
-    return redirect("/{$id}");
+    return redirect("/home/{$id}");
     // return redirect()->route(`/`);
 });
 
