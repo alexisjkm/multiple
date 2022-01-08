@@ -72,7 +72,7 @@ function getPreguntas(idSolicitud){
                         </div>
                         <div class="col-2 row">
                             <div class="col-sm-12">
-                                <input class="form-check-input" value="1" type="radio" name="pregunta${j}" id="pregunta${j}${k}" >
+                                <input class="form-check-input" type="radio" name="pregunta${j}" id="pregunta${j}${k}" >
                                 <label class="form-check-label" for="pregunta3">Correcta</label>
                             </div>
                         </div>
@@ -97,24 +97,56 @@ function getPreguntas(idSolicitud){
 }   
 
 function guardarPreguntaRespuesta(){
+    id = $("#id_solicitud").val();
+    console.log(id);
     cantidadk = $("#k").val();
     cantidadj = $("#j").val();
+    
+    console.log(`cantidad j ${cantidadj}`);
+    console.log(`cantidad k ${cantidadk}`);
 
-    url = '/api/test/profesor/'
-    preguntas = {}
-    for (i = 0; i < cantidadJ; i++){
-        respuesta = $(`#respuesta${j}`).val(),
-        correcta = $(`input[name=pregunta${j}]:checked`).val();
+
+    url = '/api/test/pregunta/'
+    preguntas = []
+    respuestas = []
+    console.log(`url k ${url}`);
+    j = 0;
+    for (i = 0; i < cantidadj; i++){
+        j++;
+        console.log(`i ${i}`)
+        preguntaN = $(`#preguntaN${j}`).val();
+        
+        
+        for (k = 1; k <= cantidadk; k++){
+            correcta = $(`input[id=pregunta${j}${k}]`).is(" :checked");
+            respuesta = $(`#respuesta${j}${k}`).val();
+            console.log(`correcta ${respuesta} ${correcta}`)
+
+            respuestas.push({
+                'correcta': correcta,
+                'respuesta': respuesta
+            })
+        }
+        
+        preguntas.push({
+            'pregunta': preguntaN,
+            "respuesta": respuestas
+        })
+
     }
     $.ajax({
         url: url, 
         contentType: "application/json",
         url:url,
-        method: "PUT",
+        method: "POST",
         dataType: "json",
         data : JSON.stringify({
-
-        }), 
+            preguntas : preguntas, 
+            id:id
+        }),
+        success:function(data){
+            window.location =  `/profesor/`
+        } 
     })
 
 }

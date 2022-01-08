@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ExamenRespuesta extends Model
 {
     use HasFactory;
-    protected $table = 'examenes_respuestas';
+    protected $fillable = ['id_pregunta', 'correcta', 'respuesta'];
+    protected $table = 'examanes_respuestas';
+    protected $casts = ['correcta' => 'boolean'];
     
 }
