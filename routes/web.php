@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/{id}', 'HomeController@verRespuestas');
+
+Route::get('/', function(){
+    $id = uniqid();
+    return redirect("/{$id}");
+    // return redirect()->route(`/`);
+});
+
+
+// return redirect()->route('login');
+
 Route::group(['prefix' => 'profesor',], function () {
     // Route::apiResource('/profesor', 'API\ExamenSolicitudController');
     // Route::get(/)
