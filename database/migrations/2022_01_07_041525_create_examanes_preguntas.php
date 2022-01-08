@@ -19,6 +19,10 @@ class CreateExamanesPreguntas extends Migration
             $table->string('pregunta')->default(0);
             $table->timestamps();
         });
+        
+        Schema::table('examanes_preguntas', function(Blueprint $table) {
+            $table->foreign('id_examen_solicitud')->references('id')->on('examenes_solicitudes');
+        });
     }
 
     /**

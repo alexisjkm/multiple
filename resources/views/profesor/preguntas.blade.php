@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="col-md-12 " id="preguntas">
-        <!-- <input type="text" value="{!!$id!!}" id="id_solicitud"> -->
+        <input type="hidden" value="{!!$id!!}" id="id_solicitud">
         <!-- <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalStatic" >Crear  Examen</button> -->
     </div>
     <div class="col-md-12">

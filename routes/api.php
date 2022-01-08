@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => 'test',], function () {
     Route::apiResource('/profesor', 'API\ExamenSolicitudController');
+    Route::apiResource('/pregunta', 'API\ExamenPreguntaController');
 
 });

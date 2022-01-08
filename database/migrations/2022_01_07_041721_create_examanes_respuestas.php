@@ -16,8 +16,13 @@ class CreateExamanesRespuestas extends Migration
         Schema::create('examanes_respuestas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_pregunta');
+            $table->string("respuesta");
             $table->boolean("correcta")->default(0);
             $table->timestamps();
+        });
+
+        Schema::table('examanes_respuestas', function(Blueprint $table) {
+            $table->foreign('id_pregunta')->references('id')->on('examanes_preguntas');
         });
     }
 

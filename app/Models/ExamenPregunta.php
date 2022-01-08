@@ -9,6 +9,8 @@ class ExamenPregunta extends Model
 {
     use HasFactory;
 
-    protected $table = 'examenes_preguntas';
+    
+    protected $fillable = ['id_examen_solicitud', 'pregunta'];
+    protected $table = 'examanes_preguntas';
     
 }
