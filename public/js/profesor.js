@@ -78,12 +78,9 @@ function getPreguntas(idSolicitud){
                         </div>
                     </div>`
                 }
-
-                
                 $("#preguntas").append(`${titulo} ${preguntaTitulo}`);
                 j++
             }
-
             j--;
             k--;
             cantidadJ = `<input type="hidden" class="form-control" value="${j}" id="j">`
@@ -95,6 +92,29 @@ function getPreguntas(idSolicitud){
         error:function(jqXHR, exception){
 
         }
+    })
+
+}   
+
+function guardarPreguntaRespuesta(){
+    cantidadk = $("#k").val();
+    cantidadj = $("#j").val();
+
+    url = '/api/test/profesor/'
+    preguntas = {}
+    for (i = 0; i < cantidadJ; i++){
+        respuesta = $(`#respuesta${j}`).val(),
+        correcta = $(`input[name=pregunta${j}]:checked`).val();
+    }
+    $.ajax({
+        url: url, 
+        contentType: "application/json",
+        url:url,
+        method: "PUT",
+        dataType: "json",
+        data : JSON.stringify({
+
+        }), 
     })
 
 }
